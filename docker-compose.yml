@@ -1,0 +1,27 @@
+services:
+  fastify:
+    container_name: pixit-fastify
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      NODE_ENV: development
+
+  postgres:
+    container_name: pixit-db
+    image: bitnami/postgresql:latest
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: pixit
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/bitnami/postgresql
+
+volumes:
+  postgres_data:
