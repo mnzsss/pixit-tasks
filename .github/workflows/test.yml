@@ -38,9 +38,12 @@ jobs:
     - name: ⏬ Install dependencies
       run: pnpm install
 
+    - name: 💚 Prisma generate
+      run: pnpm prisma generate
+
     - name: 🧪 Test
       env:
         JWT_SECRET: "secret"
         DATABASE_URL: "postgresql://docker:docker@pixit-db:5432/pixit?schema=public"
-        PASSWORD_ENCRYPTION_KEY: "secret"
+        PASSWORD_ENCRYPTION_KEY: "BKYHAT11zlXUiXE3iZfzSEWfvwjdbfPK"
       run: pnpm run test

@@ -6,7 +6,7 @@ on:
      - master
 
 jobs:
-  tests:
+  build:
     name: 📦️ Build
     runs-on: ubuntu-latest
     steps:
@@ -39,6 +39,9 @@ jobs:
 
     - name: ⏬ Install dependencies
       run: pnpm install
+
+    - name: 💚 Prisma generate
+      run: pnpm prisma generate
 
     - name: 📦️ Build
       run: pnpm run build
