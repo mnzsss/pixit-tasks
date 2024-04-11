@@ -39,4 +39,8 @@ jobs:
       run: pnpm install
 
     - name: 🧪 Test
+      env:
+        JWT_SECRET: "secret"
+        DATABASE_URL: "sqlite://:memory:"
+        PASSWORD_ENCRYPTION_KEY: "secret"
       run: pnpm run test
