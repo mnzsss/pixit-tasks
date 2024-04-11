@@ -100,8 +100,10 @@ async function main() {
       }
     }
 
-    console.log(`Server listening at ${address}/api`)
-    console.log(`Docs available at ${address}/docs`)
+    if (env.NODE_ENV !== 'test') {
+      console.log(`Server listening at ${address}/api`)
+      console.log(`Docs available at ${address}/docs`)
+    }
   })
 
   return f
